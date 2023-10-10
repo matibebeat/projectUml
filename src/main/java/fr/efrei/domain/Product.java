@@ -12,6 +12,14 @@ public class Product {
 
     private Product() {
     }
+
+    private Product(double price, int id, String description) {
+        this.price = price;
+        this.id = id;
+        this.description = description;
+    }
+
+
     /*make a builder to build the class*/
     public static class Builder {
         private double price;
@@ -22,6 +30,7 @@ public class Product {
             this.price = price;
             return this;
         }
+
 
         public Builder id(int id) {
             this.id = id;
