@@ -12,52 +12,39 @@ public class Product {
 
     private Product() {
     }
+    /*make a builder to build the class*/
+    public static class Builder {
+        private double price;
+        private int id;
+        private String description;
 
-    private Product(Builder builder) {
-        this.price = builder.price;
-        this.id = builder.id;
-        this.description = builder.description;
+        public Builder price(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Product build() {
+            Product product = new Product();
+            product.price = this.price;
+            product.id = this.id;
+            product.description = this.description;
+            return product;
+        }
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public Builder setPrice(double newPrice) {
-        price = newPrice;
-        return this;
-    }
 
 
-    public int getId() {
-        return id;
-    }
 
-    public Builder setId(int newId) {
-        id = newId;
-        return this;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public Builder setDescription(String newDescription) {
-        description = newDescription;
-        return this;
-    }
-
-    public Builder copy(Product product) {
-        price = product.getPrice();
-        id = product.getId();
-        description = product.getDescription();
-    }
-
-    public Product build() {
-        return new Product(this);
-    }
 
     @Override
     public String toString() {
